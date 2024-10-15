@@ -1,10 +1,18 @@
 package com.debuggeando_ideas.best_travel.domain.entities;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 
 @Entity(name = "hotel")
+@NoArgsConstructor //Para tener constructor vacio
+@Data
+@Builder //Patron de diseño, evita tener una sobrecarga de constructores
+@AllArgsConstructor //Constructor con todos los argumentos
 public class HotelEntity {
 
     @Id
