@@ -1,8 +1,6 @@
 package com.debuggeando_ideas.best_travel.domain.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,7 +12,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-@Entity
+@Entity(name = "reservation")
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
@@ -29,4 +27,7 @@ public class ReservationEntity implements Serializable {
     private LocalDate dateEnd;
     private Integer totalDays;
     private BigDecimal price;
+    @ManyToOne
+    @JoinColumn(name = "hotel_id")
+    private HotelEntity hotel;
 }
