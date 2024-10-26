@@ -5,6 +5,7 @@ import lombok.*;
 
 import java.io.Serializable;
 import java.util.Set;
+import java.util.UUID;
 
 @Entity(name = "tour")
 @NoArgsConstructor
@@ -39,4 +40,16 @@ public class TourEntity implements Serializable {
     @ManyToOne
     @JoinColumn(name = "id_customer")
     private CustomerEntity customer;
+
+    public void addTicket(TicketEntity ticket){
+        this.tickets.add(ticket);
+    }
+
+    public void removeTicket(UUID id){
+        this.tickets.removeIf(ticket -> ticket.getId().equals(id));
+    }
+
+    public void updateTickets(){
+        this.tickets.forEach(ticket -> ticket.setTour(this));
+    }
 }
