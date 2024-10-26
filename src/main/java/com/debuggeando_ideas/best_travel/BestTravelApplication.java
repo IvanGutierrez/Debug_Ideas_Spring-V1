@@ -7,6 +7,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.math.BigDecimal;
 import java.util.UUID;
 
 @SpringBootApplication
@@ -40,15 +41,20 @@ public class BestTravelApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		var fly = flyRepository.findById(15L).get();
-		var hotel = hotelRepository.findById(7L).get();
-		var ticket = ticketRepository.findById(UUID.fromString("32345678-1234-5678-4234-567812345678")).get();
-		var reservation = reservationRepository.findById(UUID.fromString("52345678-1234-5678-1234-567812345678")).get();
-		var customer = customerRepository.findById("BBMB771012HMCRR022").get();
-		log.info(String.valueOf(fly));
-		log.info(String.valueOf(hotel));
-		log.info(String.valueOf(ticket));
-		log.info(String.valueOf(reservation));
-		log.info(String.valueOf(customer));
+//		var fly = flyRepository.findById(15L).get();
+//		var hotel = hotelRepository.findById(7L).get();
+//		var ticket = ticketRepository.findById(UUID.fromString("32345678-1234-5678-4234-567812345678")).get();
+//		var reservation = reservationRepository.findById(UUID.fromString("52345678-1234-5678-1234-567812345678")).get();
+//		var customer = customerRepository.findById("BBMB771012HMCRR022").get() ;
+//		log.info(String.valueOf(fly));
+//		log.info(String.valueOf(hotel));
+//		log.info(String.valueOf(ticket));
+//		log.info(String.valueOf(reservation));
+//		log.info(String.valueOf(customer));
+
+		//V34 JPQL
+//		this.flyRepository.selectLessPrice(BigDecimal.valueOf(20)).forEach(f -> System.out.println(f));
+//		this.flyRepository.selectBetweenPrice(BigDecimal.valueOf(10), BigDecimal.valueOf(15)).forEach(System.out::println);
+		this.flyRepository.selectOriginDestiny("Grecia", "Mexico").forEach(System.out::println);
 	}
 }
