@@ -60,7 +60,13 @@ public class BestTravelApplication implements CommandLineRunner {
 //      Primero me trae el vuelo con el Id 1, posteriormente me trae los tickets de ese vuelo con id 1
 //		var fly = flyRepository.findById(1L).get();
 //		fly.getTickets().forEach(ticket -> System.out.println(ticket));
-		var fly = flyRepository.findByTicketId(UUID.fromString("12345678-1234-5678-2236-567812345678"));
-		System.out.println(fly);
+//		var fly = flyRepository.findByTicketId(UUID.fromString("12345678-1234-5678-2236-567812345678"));
+//		System.out.println(fly);
+
+//		V36 Queries personalizados con lenguaje inclusivo de spring data
+//		hotelRepository.findByPriceLessThan(BigDecimal.valueOf(100)).forEach(System.out::println);
+//		hotelRepository.findByPriceIsBetween(BigDecimal.valueOf(100),
+//				BigDecimal.valueOf(150)).forEach(System.out::println);
+		hotelRepository.findByRatingGreaterThan(3).forEach(System.out::println);
 	}
 }
