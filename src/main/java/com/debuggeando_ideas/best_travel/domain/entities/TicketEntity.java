@@ -30,7 +30,12 @@ public class TicketEntity implements Serializable {
     @ManyToOne
     @JoinColumn(name = "fly_id")
     private FlyEntity fly;
+
     @ManyToOne
     @JoinColumn(name = "tour_id", nullable = true)
     private TourEntity tour;
+
+    @ManyToOne
+    @JoinColumn(name = "customer_id")
+    private CustomerEntity customer;
 }

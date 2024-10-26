@@ -18,6 +18,7 @@ public class TourEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @OneToMany(
             cascade = CascadeType.ALL,
             fetch = FetchType.EAGER,
@@ -25,6 +26,7 @@ public class TourEntity implements Serializable {
             mappedBy = "tour"
     )
     private Set<ReservationEntity> reservations;
+
     @OneToMany(
             cascade = CascadeType.ALL,
             fetch = FetchType.EAGER,
@@ -32,6 +34,7 @@ public class TourEntity implements Serializable {
             mappedBy = "tour"
     )
     private Set<TicketEntity> tickets;
+
     @ManyToOne
     @JoinColumn(name = "id_customer")
     private CustomerEntity customer;
